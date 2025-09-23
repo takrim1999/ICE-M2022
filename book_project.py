@@ -46,3 +46,7 @@ def books(parameter):
         if i['title'].lower() == data:
             out = i
     return JSONResponse(out)
+
+@app.get("/search/")
+def search(q):
+    return JSONResponse({"Message" : f"Search result for your query {q}"})
