@@ -23,6 +23,8 @@ function ResetPasswordForm() {
     }
   }, [searchParams]);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -30,7 +32,7 @@ function ResetPasswordForm() {
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:8000/reset-password', {
+      const res = await fetch(`${API_URL}/reset-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

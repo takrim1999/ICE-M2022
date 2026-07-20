@@ -14,6 +14,8 @@ export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -21,7 +23,7 @@ export default function RegisterPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:8000/register', {
+      const res = await fetch(`${API_URL}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
