@@ -44,7 +44,7 @@ class RentalContract(Base):
     ram_gb_rented = Column(Float, default=0.0)
     p_cores_rented = Column(Integer, default=0)
     e_cores_rented = Column(Integer, default=0)
-    status = Column(String, default="active") # active, completed
+    status = Column(String(50), default="active") # active, completed
     created_at = Column(DateTime, default=datetime.utcnow)
     completed_at = Column(DateTime, nullable=True)
     total_cost = Column(Float, default=0.0)
